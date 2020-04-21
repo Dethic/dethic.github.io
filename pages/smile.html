@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绽放的微笑</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/music.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bscslider.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/blue.css">
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.bscslider.js"></script>
+    <script type="text/javascript" src="../js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="../js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        ul,
+        ol,
+        dl {
+            list-style: none;
+        }
+
+        .music_box {
+            margin: 50px auto;
+            width: 422px;
+        }
+
+        .content {
+            width: 480px;
+            height: 100%;
+            overflow: hidden;
+            padding: 10px;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //<![CDATA[
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "../sounds/smile.mp3" //mp3的播放地址
+                    });
+                },
+                timeupdate: function (event) {
+                    if (event.jPlayer.status.currentTime == 0) {
+                        time = "";
+                    } else {
+                        time = event.jPlayer.status.currentTime;
+                    }
+                },
+                play: function (event) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start($('#lrc_content').val(), function () {
+                        return time;
+                    });
+                },
+                ended: function (event) {
+                    $("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+                },
+                swfPath: "../js", //存放jplayer.swf的决定路径
+                solution: "html, flash", //支持的页面
+                supplied: "mp3", //支持的音频的格式
+                wmode: "window"
+            });
+        });
+        //]]>
+    </script>
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="logo"><img src="../imgs/logo.jpg" alt="happy family"></div>
+        <div class="nav">
+            <ul id="fm">
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="#">家族成员</a>
+                    <ul>
+                        <li><a href="hejiu.html">何炅</a></li>
+                        <li><a href="xiena.html">谢娜</a></li>
+                        <li><a href="weijia.html">维嘉</a></li>
+                        <li><a href="wuxin.html">吴昕</a></li>
+                        <li><a href="duhaitao.html">杜海涛</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">代表作品</a>
+                    <ul>
+                        <li><a href="happy_legend.html">快乐大本营</a></li>
+                        <li><a href="xiyouji.html">嘻游记</a></li>
+                        <li><a href="xqdz.html">仙球大战</a></li>
+                        <li><a href="kldj.html">快乐到家</a></li>
+                        <li><a href="run_way.html">一路狂奔</a></li>
+                        <li><a href="happy_youknow.html">快乐你懂的</a></li>
+                        <li><a href="distance.html">思念的距离</a></li>
+                        <li><a href="day_dream.html">白日梦</a></li>
+                        <li><a href="smile.html">绽放的微笑</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="https://www.baidu.com/s" class="pull-right" target="_blank">
+                <input type="text" name="wd" class="ser" placeholder="请在此键入搜索">
+                <input type="submit" class="ser-submit" value="搜索">
+            </form>
+        </div>
+    </div>
+    <div class="ad" id="main">
+        <div class="slider slider1">
+            <img src="../assets/imgs/img1.jpg" />
+            <img src="../assets/imgs/img2.jpg" />
+            <img src="../assets/imgs/img3.jpg" />
+        </div>
+    </div>
+    <script>
+        $('.slider1').bscSlider({
+            duration: 2500,
+            effect: 1,
+            effect_speed: 750,
+            easing: 'easeOutQuad'
+        });
+        $('.slider').bscSlider({
+            duration: 1000,
+            effect: 1,
+            effect_speed: 750,
+        });
+    </script>
+
+    <div class="content-music">
+        <div class="c-left pull-left" id="left">
+            <textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;">
+                        [00:00.00]绽放的微笑 (《快乐大本营》节目片尾曲) - 快乐家族
+                        [00:08.12]词：严艺丹
+                        [00:16.25]曲：严艺丹
+                        [00:24.38]绽放你最美的微笑
+                        [00:27.28]你的喜悲最最重要
+                        [00:30.56]委屈会有我知道
+                        [00:33.56]累了肩膀给你靠
+                        [00:37.04]绽放你最美的微笑
+                        [00:40.18]让我看到你的骄傲
+                        [00:43.82]那骄傲 多闪耀
+                        [00:46.96]绽放一次就够美好
+                        [00:51.13]不一样的想象
+                        [00:53.65]不一样天马行空的绽放
+                        [00:57.97]就很漂亮 就会很有力量
+                        [01:03.15]都一样有梦想
+                        [01:06.14]都一样不顾一切的痴狂
+                        [01:10.82]也许受伤 也继续去闯
+                        [01:16.33]冷天不一定比谁有理由
+                        [01:22.82]掌心的温暖一直伴你左右
+                        [01:28.93]绽放你最美的微笑
+                        [01:32.11]你的喜悲最最重要
+                        [01:35.38]委屈会有我知道
+                        [01:38.58]累了肩膀给你靠
+                        [01:41.90]绽放你最美的微笑
+                        [01:45.13]让我看到你的骄傲
+                        [01:48.75]那骄傲 多闪耀
+                        [01:51.74]绽放一次就够美好
+                        [02:08.63]不一样的想象
+                        [02:11.43]不一样天马行空的绽放
+                        [02:15.68]就很漂亮 就会很有力量
+                        [02:20.83]都一样有梦想
+                        [02:24.02]都一样不顾一切的痴狂
+                        [02:28.60]也许受伤 也继续去闯
+                        [02:34.08]冷天不一定比谁有理由
+                        [02:40.73]掌心的温暖一直伴你左右
+                        [02:46.69]绽放你最美的微笑
+                        [02:49.99]你的喜悲最最重要
+                        [02:53.31]委屈会有我知道
+                        [02:56.45]累了肩膀给你靠
+                        [02:59.71]绽放你最美的微笑
+                        [03:02.91]让我看到你的骄傲
+                        [03:06.53]那骄傲 多闪耀
+                        [03:09.61]绽放一次就够美好
+                        [03:13.02]绽放你最美的微笑
+                        [03:15.94]你的喜悲最最重要
+                        [03:19.26]委屈会有我知道
+                        [03:22.40]累了肩膀给你靠
+                        [03:25.58]绽放你最美的微笑
+                        [03:28.87]让我看到你的骄傲
+                        [03:32.49]那骄傲 多闪耀
+                        [03:35.52]绽放一次就够美好
+                    </textarea>
+            <div class="music_box" style="height: 80%">
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                                <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max
+                                        volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <ul class="jp-toggles">
+                                    <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a>
+                                    </li>
+                                    <li><a href="javascript:;" class="jp-repeat-off" tabindex="1"
+                                            title="repeat off">repeat off</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to
+                            either
+                            update your browser to a recent version or update your <a
+                                href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul id="lrc_list">
+                        <li>点击开始播放……</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c-right pull-left" id="right">
+            <h2>《绽放的微笑》</h2>
+            <h3>歌曲介绍</h3>
+            <img src="../imgs/smile.jpg" alt="绽放的微笑">
+            <p>《绽放的微笑》是由严艺丹作词、作曲，快乐家族演唱的一首歌曲。该歌曲于2010年9月21日发行，并收录于专辑《快乐你懂的》。该歌曲是《快乐大本营》的片尾曲。</p>
+            <h3>歌评</h3>
+            <p style="text-indent: 0">无论你遇见谁，<br>
+
+                都是在你生命中该出现的人<br>
+
+                这意味，没有人是因为偶然进入我们的生命<br>
+
+                每个在我们周围，和我们有互动的人，都代表一些事<br>
+
+                也许要教会我们什么，也许要协助我们改善眼前的一个情况<br>
+
+                无论发生什么事，那都是唯一会发生的事<br>
+
+                无论发生什么事，那都是唯一会发生的，而且一定要那样发生...<br>
+
+                才能让我们学到经验以便继续前进<br>
+
+                不管事情开始于哪个时刻，都是对的时刻。<br>
+
+                已经结束的，就已经结束了，这是如此简单<br>
+
+                当生命中有些事情结束，它会帮助我们进化<br>
+
+                要明白，没有任何一片雪花会因为意外落在错的地方<br>
+
+                善待自己，愿精致到老， 眼里长着太阳☀，笑里全是坦荡！</p>
+
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                if ($("#left").height() > $("#right").height()) {
+                    $("#right").css("height", $("#left").height());
+                } else {
+                    $("#left").css("height", $("#right").height());
+                }
+            })
+        </script>
+    </div>
+
+    <div class="footer">
+        <span>xxxxxx 版权所有</span><br><span>联系电话：(020) xxxxxxx&emsp;xxxxxxxxxx&emsp;E-mail：xxx@xx.com</span>
+    </div>
+</body>
+
+</html>

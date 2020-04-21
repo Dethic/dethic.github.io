@@ -1,0 +1,197 @@
+/*****************************初始化*****************************/
+*{
+    font-family: 'microsoft yahei';
+    margin: 0;
+    padding: 0;
+}
+video:focus{
+    outline:none;
+}
+body{
+    margin: 0 auto;
+    min-width: 640px;
+    max-width: 1280px;
+    background-color: #e5e5e5;
+}
+ul,li{
+    margin: 0;
+    padding: 0;
+    z-index: 999999;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float: right;
+}
+.clearfix{
+    *zoom: 1;
+}
+.flearfix:after{
+    content:".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+/*****************************个人简介*****************************/
+h1{
+    margin-left: 40px;
+    font-size: 30px;
+    color: #334;
+}
+h2{
+    clear: both;
+    font-weight: 700;
+    color: #777;
+    margin: 10px 0;
+}
+h3{
+    font-weight: 600;
+    color: #777;
+    margin-top: 20px;
+}
+p{
+    text-indent: 2em;
+}
+.h1-change{
+    position: relative;
+    top: 20px;
+}
+.header{
+    margin: 10px auto;
+}
+.header img{
+    display: block;
+    margin: 0 auto;
+}
+.header .nav{
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.header .nav form{
+    margin-right: 50px;
+}
+.header .nav .ser{
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #e2e2e2;
+    background-image: url('../imgs/search.jpg');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position:5px center;
+    padding:0 0 0 20px;
+    text-align: center;
+}
+.header .nav .ser-submit{
+    margin-top: 10px;
+    width: 78px;
+    height: 32px;
+    float: right;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+}
+.ad{
+    margin: 10px 0;
+}
+.content{
+    background: #fff;
+}
+.content .sidebar{
+    display: inline-block;
+    padding: 20px 15px;
+    width: 25%;
+    min-height: 900px;
+    max-height: 2000px;
+    background: rgba(77,77,77,0.5);
+    overflow: hidden;
+}
+.content .sidebar img{
+    display: block;
+    position: relative;
+    top: 40px;
+    left: 80px;
+}
+.content .sidebar span{
+    margin-top: 100px;
+    display: block;
+    text-align: justify;
+    font-size: 16px;
+    text-indent: 2em;
+    color: #fff;
+    line-height: 2.5em;
+}
+.content .cbrief{
+    display: inline-block;
+    padding: 20px 20px;
+    width: 65%;
+    min-height: 900px;
+    max-height: 2000px;
+    overflow: hidden;
+}
+
+.footer{
+    margin-top: 5px;
+    font-size: 13px;
+    height: 100px;
+    text-align: center;
+    color: #777;
+}
+.footer>span:first-child{
+    letter-spacing: 1px;
+}
+.cbrief .basic-info{
+    width: 100%;
+    min-width: 350px;
+    max-height: 450px;
+}
+.cbrief dl{
+    margin: 10px 0 30px 0px;
+    width: 400px;
+    color: #999;
+    font-weight: 500;
+}
+.cbrief .basic-info-l{
+    display: block;
+    float: left;
+    padding: 10px 0;
+    width: 120px;
+    height: 16px;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    border-bottom: #999 dashed 1px;
+}
+.cbrief .basic-info-r{
+    display: block;
+    float: left;
+    padding: 10px 0;
+    width: 280px;
+    height: 16px;
+    border-bottom: #999 dashed 1px;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+}
+
+.cbrief p{
+    padding: 20px;
+    float: left;
+    line-height: 25px;
+    color: #777;
+    width: 800px;
+    text-align: justify;
+}

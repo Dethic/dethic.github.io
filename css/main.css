@@ -1,0 +1,80 @@
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+/***********导航栏************/
+#fm{
+  height: 40px;
+  cursor: pointer;
+}
+
+#fm>li {
+  float: left;
+}
+
+#fm a{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-decoration: none;
+}
+#fm a:link,
+#fm a:visited{
+  color: black;
+}
+#fm a:hover{
+  color: white;
+  font-weight: bold;
+}
+#fm li {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+#fm li:hover{
+  font-weight: bold;
+  color: white;
+  background-color: #c00;
+  border-radius: 6px;
+}
+
+#sfm {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 10000;
+  border-radius: 6px;
+  color: black !important;
+  background-color: #fcfcfc;
+}
+/**********导航栏***********/
+h2{
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.intro{
+  padding: 10px;
+  background: #fff;
+  font-size: 15px;
+  text-indent: 2em;
+  line-height: 20px;
+  border-radius: 5px;
+  text-align: justify;
+  box-shadow: 0px 0px 5px 2px #E5E5E5;
+  overflow: hidden;
+}
+
+.message a:before{
+  content: url('../images/bt.png');
+}
+#vhr{
+  border-right: 2px solid darkgrey;
+}

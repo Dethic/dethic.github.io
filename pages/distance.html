@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>思念的距离</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/music.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bscslider.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/blue.css">
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.bscslider.js"></script>
+    <script type="text/javascript" src="../js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="../js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            background-color: #e5e5e5;
+        }
+
+        ul,
+        ol,
+        dl {
+            list-style: none;
+        }
+
+        .music_box {
+            margin: 50px auto;
+            width: 422px;
+        }
+
+        .content {
+            width: 480px;
+            height: 100%;
+            overflow: hidden;
+            padding: 10px;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //<![CDATA[
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "../sounds/distance.mp3" //mp3的播放地址
+                    });
+                },
+                timeupdate: function (event) {
+                    if (event.jPlayer.status.currentTime == 0) {
+                        time = "";
+                    } else {
+                        time = event.jPlayer.status.currentTime;
+                    }
+                },
+                play: function (event) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start($('#lrc_content').val(), function () {
+                        return time;
+                    });
+                },
+                ended: function (event) {
+                    $("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+                },
+                swfPath: "/js", //存放jplayer.swf的决定路径
+                solution: "html, flash", //支持的页面
+                supplied: "mp3", //支持的音频的格式
+                wmode: "window"
+            });
+        });
+        //]]>
+    </script>
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="logo"><img src="../imgs/logo.jpg" alt="happy family"></div>
+        <div class="nav">
+            <ul id="fm">
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="#">家族成员</a>
+                    <ul>
+                        <li><a href="hejiu.html">何炅</a></li>
+                        <li><a href="xiena.html">谢娜</a></li>
+                        <li><a href="weijia.html">维嘉</a></li>
+                        <li><a href="wuxin.html">吴昕</a></li>
+                        <li><a href="duhaitao.html">杜海涛</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">代表作品</a>
+                    <ul>
+                        <li><a href="happy_legend.html">快乐大本营</a></li>
+                        <li><a href="xiyouji.html">嘻游记</a></li>
+                        <li><a href="xqdz.html">仙球大战</a></li>
+                        <li><a href="kldj.html">快乐到家</a></li>
+                        <li><a href="run_way.html">一路狂奔</a></li>
+                        <li><a href="happy_youknow.html">快乐你懂的</a></li>
+                        <li><a href="distance.html">思念的距离</a></li>
+                        <li><a href="day_dream.html">白日梦</a></li>
+                        <li><a href="smile.html">绽放的微笑</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="https://www.baidu.com/s" class="pull-right" target="_blank">
+                <input type="text" name="wd" class="ser" placeholder="请在此键入搜索">
+                <input type="submit" class="ser-submit" value="搜索">
+            </form>
+        </div>
+    </div>
+    <div class="ad" id="main">
+        <div class="slider slider1">
+            <img src="../assets/imgs/img1.jpg" />
+            <img src="../assets/imgs/img2.jpg" />
+            <img src="../assets/imgs/img3.jpg" />
+        </div>
+    </div>
+    <script>
+        $('.slider1').bscSlider({
+            duration: 2500,
+            effect: 1,
+            effect_speed: 750,
+            easing: 'easeOutQuad'
+        });
+        $('.slider').bscSlider({
+            duration: 1000,
+            effect: 1,
+            effect_speed: 750,
+        });
+    </script>
+
+    <div class="content-music">
+        <div class="c-left pull-left" id="left">
+            <textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;">
+                        [00:00.00]思念的距离 - 何炅
+                        [00:07.51]词：何炅
+                        [00:15.03]曲：许飞
+                        [00:22.54]好久没有见到你
+                        [00:27.61]
+                        [00:29.26]正好计算思念能到的距离
+                        [00:34.75]
+                        [00:36.85]我也相信
+                        [00:37.88]遥远不能改变我和你的默契
+                        [00:43.80]
+                        [00:44.36]却还是抹不平静想念你的心情
+                        [00:51.01]
+                        [00:52.00]你的问候是我温暖的理由
+                        [00:58.74]站在你的身旁 我可以片刻停留
+                        [01:05.37]
+                        [01:06.54]想想未来虽然很浪漫
+                        [01:09.93]却总是要勇敢
+                        [01:12.93]我的期盼是否成为你的负担
+                        [01:19.79]
+                        [01:22.90]回应我的方式有千千万万种
+                        [01:26.27]你的心却像是一阵风
+                        [01:29.87]思念不听话 自己跑出来
+                        [01:33.71]任性追寻你的影踪
+                        [01:37.33]也许把梦放了从未感觉不同
+                        [01:41.04]只是离别不忍道珍重
+                        [01:44.74]思念不听话 自己跑出来
+                        [01:48.43]距离没有用 思念很重
+                        [01:55.58]
+                        [02:14.93]好久没有见到你
+                        [02:20.12]
+                        [02:21.84]正好计算思念能到的距离
+                        [02:27.37]
+                        [02:29.41]我也相信
+                        [02:30.41]遥远不能改变我和你的默契
+                        [02:36.69]却还是抹不平静想念你的心情
+                        [02:43.77]
+                        [02:44.45]你的问候是我温暖的理由
+                        [02:51.28]站在你的身旁 我可以片刻停留
+                        [02:57.90]
+                        [02:59.08]想想未来虽然很浪漫
+                        [03:02.65]却总是要勇敢
+                        [03:05.53]我的期盼是否成为你的负担
+                        [03:13.05]
+                        [03:13.84]回应我的方式有千千万万种
+                        [03:17.31]你的心却像是一阵风
+                        [03:20.96]思念不听话 自己跑出来
+                        [03:24.78]任性追寻你的影踪
+                        [03:28.41]也许把梦放了从未感觉不同
+                        [03:32.14]只是离别不忍道珍重
+                        [03:35.80]思念不听话 自己跑出来
+                        [03:39.51]距离没有用 思念很重
+                        [03:46.39]
+                        [03:46.97]回应我的方式有千千万万种
+                        [03:50.57]你的心却像是一阵风
+                        [03:54.26]思念不听话自己跑出来
+                        [03:57.99]任性追寻你的影踪
+                        [04:01.69]也许把梦放了从未感觉不同
+                        [04:05.31]只是离别不忍道珍重
+                        [04:09.01]思念不听话 自己跑出来
+                        [04:12.70]距离没有用 思念很重
+                        [04:18.85]
+                        [04:20.19]也许把梦放了从未感觉不同
+                        [04:23.98]只是离别不忍道珍重
+                        [04:27.82]思念不听话 自己跑出来
+                        [04:31.80]距离没有用 思念很重
+                    </textarea>
+            <div class="music_box" style="height: 80%">
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                                <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max
+                                        volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <ul class="jp-toggles">
+                                    <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a>
+                                    </li>
+                                    <li><a href="javascript:;" class="jp-repeat-off" tabindex="1"
+                                            title="repeat off">repeat off</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to
+                            either
+                            update your browser to a recent version or update your <a
+                                href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul id="lrc_list">
+                        <li>点击开始播放……</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c-right pull-left" id="right">
+            <h2>《思念的距离》</h2>
+            <h3>创作背景</h3>
+            <img src="../imgs/distance.jpg" alt="思念的距离">
+            <p>《思念的距离》原本是许飞写的一首歌，2009年许飞看快女比赛时在刘惜君淘汰时心里突然涌出一种惺惺相惜的情愫。于是马上关掉电视，连夜写了一首歌。后来听说何老师要发唱片，就将这首歌毛遂自荐，没想到何老师真用上了。只是因为许飞以女性叙述的口吻写的词不太适合，所以何老师亲自操刀重新填词。何老师非常肯定许飞的创作能力，并表示这首歌的旋律让他很有感觉，触动到他想写词的欲望。两人的合作可以说是一场意外，更有共鸣。
+            </p>
+            <h3>歌曲鉴赏</h3>
+            <p>《思念的距离》歌词述说着伤感离别，何炅把词曲中思念的感觉唱得淋漓尽致，让人不禁沉浸在思念的情绪之中，深深想念一个人。每个人在生命中都有一个值得思念的人，这是件很美好的事情，人生正因为有了这种叫思念情感的联系，才会变得特别有意义。
+            </p>
+            <h3>歌曲MV</h3>
+            <p>为拍摄《思念的距离》MV，何炅亲自撰写剧本，讲述了几段唯美的爱情故事。
+                何炅
+                何炅
+                何炅好朋友谢楠在其中一个故事中出演失去模特爱人的女画家，MV还邀请2009快女十强潘辰客串演出，为了MV潘辰一改长发造型，短发出镜英气逼人。此外，刘美含、丁野这对靓女帅哥也演绎了一段朦胧爱情。</p>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                if ($("#left").height() > $("#right").height()) {
+                    $("#right").css("height", $("#left").height());
+                } else {
+                    $("#left").css("height", $("#right").height());
+                }
+            })
+        </script>
+    </div>
+
+    <div class="footer">
+        <span>xxxxxx 版权所有</span><br><span>联系电话：(020) xxxxxxx&emsp;xxxxxxxxxx&emsp;E-mail：xxx@xx.com</span>
+    </div>
+</body>
+
+</html>

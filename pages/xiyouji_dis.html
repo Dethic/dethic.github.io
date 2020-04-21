@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>嘻游记</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/movie_dis.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bscslider.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.bscslider.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById('miaovslide');
+            var oUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li'); //获取所有的li
+            var oUp = document.getElementById('up'); //获取向上轮播的按钮
+            var oDown = document.getElementById('down'); //获取向下轮播的按钮
+            var timer = null; //定义定时器
+            var iSpeed = 5; //定义初始速度
+            oUl.innerHTML + oUl.innerHTML; //实现循环无间断的图片流
+            oUp.onmousedown = function () {
+                timer = setInterval(doMove, 30);
+                iSpeed = -5;
+                //当按下向左的按钮时，设置速度为负，即向上滚动
+            };
+            oUp.onmouseup = function () {
+                clearInterval(timer);
+                //当抬起鼠标时，清除定时器
+            };
+            oDown.onmousedown = function () {
+                iSpeed = 5;
+                timer = setInterval(doMove, 30);
+                //当鼠标按下向右的按钮时，设置速度为正，即向下滚动
+
+            }
+            oDown.onmouseup = function () {
+                clearInterval(timer);
+                //当鼠标抬起时，清除定时器
+
+            }
+
+            function doMove() {
+                oUl.style.top = oUl.offsetTop + iSpeed + 'px';
+                if (oUl.offsetTop < -oUl.offsetHeight / 2) {
+                    oUl.style.top = '0px';
+                } else if (oUl.offsetTop > 0) {
+                    oUl.style.top = -oUl.offsetHeight / 2 + 'px';
+                }
+            };
+        };
+    </script>
+    <style>
+        .tab-content>div {
+            min-height: 700px;
+            max-height: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="logo"><img src="../imgs/logo.jpg" alt="happy family"></div>
+        <div class="nav">
+            <ul id="fm">
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="#">家族成员</a>
+                    <ul>
+                        <li><a href="hejiu.html">何炅</a></li>
+                        <li><a href="xiena.html">谢娜</a></li>
+                        <li><a href="weijia.html">维嘉</a></li>
+                        <li><a href="wuxin.html">吴昕</a></li>
+                        <li><a href="duhaitao.html">杜海涛</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">代表作品</a>
+                    <ul>
+                        <li><a href="happy_legend.html">快乐大本营</a></li>
+                        <li><a href="xiyouji.html">嘻游记</a></li>
+                        <li><a href="xqdz.html">仙球大战</a></li>
+                        <li><a href="kldj.html">快乐到家</a></li>
+                        <li><a href="run_way.html">一路狂奔</a></li>
+                        <li><a href="happy_youknow.html">快乐你懂的</a></li>
+                        <li><a href="distance.html">思念的距离</a></li>
+                        <li><a href="day_dream.html">白日梦</a></li>
+                        <li><a href="smile.html">绽放的微笑</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="https://www.baidu.com/s" class="pull-right clearfix" target="_blank">
+                <input type="text" name="wd" class="ser" placeholder="请在此键入搜索">
+                <input type="submit" class="ser-submit" value="搜索">
+            </form>
+        </div>
+    </div>
+
+
+    <div class="content clearfix">
+        <div class="movie_dis">
+            <iframe height=600 width=100% src='http://player.youku.com/embed/XMTk1MjUzNzcy'
+                frameborder=0 'allowfullscreen'></iframe>
+        </div>
+        <img src="../imgs/timg.jpg" alt="分割线">
+        <div class="item-l pull-left">
+            <div class="content-bottom">
+                <div class="tab-wrapper">
+                    <ul class="tab-menu">
+                        <li class="active">全部评论</li>
+                        <li>明星评论</li>
+                        <li>优质评论</li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="all-comment">
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_a.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人甲</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_c.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人乙</p>
+                                    <p>＃快乐大本营＃ 来看我们何三岁啦哈哈
+                                        表白刘宇宁的流川枫啊好帅一男的！大长腿快装不下屏幕啦
+                                        哈哈关键是唱歌还辣么好听！还有凌潇肃版的哪吒你那个亚子不怕吓哭小朋友吗😂😂😂
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_b.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人丙</p>
+                                    <p>＃快乐大本营＃在歌手这条路上，刘宇宁始终坚持初心，不断提升自我，面对质疑，不骄不躁，让时间证明，用作品发声。《That
+                                        Girl》新歌上线了，去听一下吧！</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="star-comment">
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/wuxin.png" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：吴昕</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/xiena.png" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：谢娜</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/weijia.png" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：维嘉</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="outs-comment">
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_a.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人丁</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_c.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人戊</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="logo-l pull-left">
+                                    <img src="../imgs/photo_b.jpg" alt="用户1">
+                                </div>
+                                <div class="content-r pull-left">
+                                    <p>用户：路人庚</p>
+                                    <p>【还记得童年许下的那一个梦想吗？】
+                                        所有大小朋友们，节日快乐！
+                                        《这！就是街舞》精彩不断升级，你是否感受到自己青春的力量不断蓄能，正所谓：看街舞，越青春，敢闯敢拼为梦想。
+                                        那么，你知道四位队长最初的梦想是什么吗？
+                                        易烊千玺，童年的梦想是当老师或者警察
+                                        罗志祥，克服重重困难只为坚持舞蹈的梦
+                                        韩庚，为了梦想12岁踏上了学艺的道路
+                                        吴建豪，受姐姐影响渴望进入演艺圈
+                                        所以，你还记得童年的那个梦想吗？回复评论，告诉我们。希望所有人坚持最初的梦想，它一定在转角等候着你！加油
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-r pull-right">
+            <div class="slide_module" id="miaovslide">
+                <div id="up"><img src="../imgs/prevup.png"></div>
+                <div class="wrap">
+                    <ul>
+                        <li><a href="xiyouji_dis.html"><img src="../imgs/dis_a.jpg"></a></li>
+                        <li><a href="run_away_dis.html"><img src="../imgs/dis_b.jpg"></a></li>
+                        <li><a href="kldj_dis.html"><img src="../imgs/dis_c.jpg"></a></li>
+                        <li><a href="xqdz_dis.html"><img src="../imgs/dis_d.jpg"></a></li>
+                        <li><a href="happy_legend_dis.html"><img src="../imgs/dis_e.jpg"></a></li>
+                    </ul>
+                </div>
+                <div id="down"><img src="../imgs/nextdown.png"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>xxxxxx 版权所有</span><br><span>联系电话：(020) xxxxxxx&emsp;xxxxxxxxxx&emsp;E-mail：xxx@xx.com</span>
+    </div>
+</body>
+
+</html>

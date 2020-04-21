@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>白日梦</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/music.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bscslider.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/blue.css">
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.bscslider.js"></script>
+    <script type="text/javascript" src="../js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="../js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        body {
+            background-color: #e5e5e5;
+        }
+        ul,
+        ol,
+        dl {
+            list-style: none;
+        }
+
+        .music_box {
+            margin: 50px auto;
+            width: 422px;
+        }
+
+        .content {
+            width: 480px;
+            height: 100%;
+            overflow: hidden;
+            padding: 10px;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //<![CDATA[
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "../sounds/day_dream.mp3" //mp3的播放地址
+                    });
+                },
+                timeupdate: function (event) {
+                    if (event.jPlayer.status.currentTime == 0) {
+                        time = "";
+                    } else {
+                        time = event.jPlayer.status.currentTime;
+                    }
+                },
+                play: function (event) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start($('#lrc_content').val(), function () {
+                        return time;
+                    });
+                },
+                ended: function (event) {
+                    $("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+                },
+                swfPath: "../js", //存放jplayer.swf的决定路径
+                solution: "html, flash", //支持的页面
+                supplied: "mp3", //支持的音频的格式
+                wmode: "window"
+            });
+        });
+        //]]>
+    </script>
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="logo"><img src="../imgs/logo.jpg" alt="happy family"></div>
+        <div class="nav">
+            <ul id="fm">
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="#">家族成员</a>
+                    <ul>
+                        <li><a href="hejiu.html">何炅</a></li>
+                        <li><a href="xiena.html">谢娜</a></li>
+                        <li><a href="weijia.html">维嘉</a></li>
+                        <li><a href="wuxin.html">吴昕</a></li>
+                        <li><a href="duhaitao.html">杜海涛</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">代表作品</a>
+                    <ul>
+                        <li><a href="happy_legend.html">快乐大本营</a></li>
+                        <li><a href="xiyouji.html">嘻游记</a></li>
+                        <li><a href="xqdz.html">仙球大战</a></li>
+                        <li><a href="kldj.html">快乐到家</a></li>
+                        <li><a href="run_way.html">一路狂奔</a></li>
+                        <li><a href="happy_youknow.html">快乐你懂的</a></li>
+                        <li><a href="distance.html">思念的距离</a></li>
+                        <li><a href="day_dream.html">白日梦</a></li>
+                        <li><a href="smile.html">绽放的微笑</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="https://www.baidu.com/s" class="pull-right" target="_blank">
+                <input type="text" name="wd" class="ser" placeholder="请在此键入搜索">
+                <input type="submit" class="ser-submit" value="搜索">
+            </form>
+        </div>
+    </div>
+    <div class="ad" id="main">
+        <div class="slider slider1">
+            <img src="../assets/imgs/img1.jpg" />
+            <img src="../assets/imgs/img2.jpg" />
+            <img src="../assets/imgs/img3.jpg" />
+        </div>
+    </div>
+    <script>
+        $('.slider1').bscSlider({
+            duration: 2500,
+            effect: 1,
+            effect_speed: 750,
+            easing: 'easeOutQuad'
+        });
+        $('.slider').bscSlider({
+            duration: 1000,
+            effect: 1,
+            effect_speed: 750,
+        });
+    </script>
+
+    <div class="content-music">
+        <div class="c-left pull-left" id="left">
+            <textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;">
+                        [00:00.00]白日梦 - 吴昕 (Orfila Wu)
+                        [00:30.87]冰激淋做云朵朵飘
+                        [00:34.55]太阳公公偷笑
+                        [00:37.60]糖果屋一口口吃掉
+                        [00:40.81]老巫婆变黑猫
+                        [00:44.12]甜甜的笑容新鲜
+                        [00:47.22]卷卷的头发养眼
+                        [00:50.38]微微翘起的嘴角
+                        [00:53.44]露出白白牙齿嘻嘻笑着
+                        [00:56.80]白日梦不醒来 王子不要太帅
+                        [00:59.86]太得意了会把嘴笑歪
+                        [01:03.02]白日梦不醒来 马车别跑太快
+                        [01:06.27]小心我的水晶鞋摔坏
+                        [01:09.38]怎么吃都不胖 怎么穿都时尚
+                        [01:12.74]怎么唱都响亮 天天唱
+                        [01:15.13]
+                        [01:15.69]白日梦不醒来 王子不要太帅
+                        [01:18.85]太得意了会把嘴笑歪歪
+                        [01:34.58]冰激淋做云朵朵飘
+                        [01:37.69]太阳公公偷笑
+                        [01:40.85]糖果屋一口口吃掉
+                        [01:43.96]老巫婆变黑猫
+                        [01:47.26]甜甜的笑容新鲜
+                        [01:50.37]卷卷的头发养眼
+                        [01:53.58]微微翘起的嘴角
+                        [01:56.79]露出白白牙齿嘻嘻笑着
+                        [01:59.94]白日梦不醒来 王子不要太帅
+                        [02:03.16]太得意了会把嘴笑歪
+                        [02:06.21]白日梦不醒来 马车别跑太快
+                        [02:09.37]小心我的水晶鞋摔坏
+                        [02:12.58]怎么吃都不胖 怎么穿都时尚
+                        [02:15.89]怎么唱都响亮 天天唱
+                        [02:18.89]白日梦不醒来 王子不要太帅
+                        [02:22.10]太得意了会把嘴笑歪歪
+                        [02:31.88]白日梦不醒来 王子不要太帅
+                        [02:34.63]太得意了会把嘴笑歪
+                        [02:37.73]白日梦不醒来 马车别跑太快
+                        [02:41.04]小心我的水晶鞋摔坏
+                        [02:44.09]怎么吃都不胖 怎么穿都时尚
+                        [02:47.25]怎么唱都响亮 天天唱
+                        [02:50.41]白日梦不醒来 王子不要太帅
+                        [02:53.67]太得意了会把嘴笑歪歪
+                    </textarea>
+            <div class="music_box" style="height: 80%">
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                                <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max
+                                        volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <ul class="jp-toggles">
+                                    <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a>
+                                    </li>
+                                    <li><a href="javascript:;" class="jp-repeat-off" tabindex="1"
+                                            title="repeat off">repeat off</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to
+                            either
+                            update your browser to a recent version or update your <a
+                                href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <ul id="lrc_list">
+                        <li>点击开始播放……</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c-right pull-left" id="right">
+            <h2>《白日梦》</h2>
+            <h3>歌曲介绍</h3>
+            <img src="../imgs/day_dream.jpg" alt="快乐你懂的">
+            <p>白日梦是指清醒时的脑内所产生的幻想及影像，通常是开心的念头、希望或野心。关于白日梦的种类，心理学家现时仍未有定案。白日梦有时是未来的情景或计划，或者是过去的回忆，就像梦的画面一样，有时更会影响情绪。</p>
+            <p>发白日梦通常涉及一连串的思考，令发白日梦者暂时完全脱离与周遭有关的事，只集中于思想当中。旁观者看起来就像呆呆地望向远处。只有突然刺激，才能令发白日梦者返回现实。</p>
+            <p>发白日梦者会被人当作懒惰，但白日梦也是灵感的来源。无论是从事艺术创作还是科学研究的人，均可在白日梦中得到灵感。</p>
+            <h3>白日梦与艺术</h3>
+            <p>在《诗人与白日梦的关系》(1908)一文中，弗洛伊德认为，人的本能冲动，特别是性本能冲动，由于在人类文明社会中受到压抑而无法得到满足，不得不“升华”并通过迂回曲折的途径来寻求宣泄，获得象征性的满足。升华通常以幻想的形式实现，而白日梦便是幻想的具体表现之一。他认为艺术家与梦幻者没有本质的不同;创作和做梦一样，是无意识欲望在想象中的满足。做梦主要是一种无意的，带有自主性质的思维。这种思维的特点是既出现大量的形象，又出现大量虚构和错构的内容。
+            </p>
+            <p>在白日梦中，人通过幻想创造了一个属于自己的世界和发泄自己欲望(主要是野心和色欲)的对象，从而使自己内心深处的隐秘欲望得到变相的、替代性的满足。在弗洛伊德看来，白日梦与艺术创作有着本质的联系。一般人由于羞于自己的白日梦，大多把它作为秘而不宣的所有物保留在自己的心灵中，但在艺术家和诗人那里，白日梦却经过一番加工和伪装，通过各种方式和技巧以艺术作品的形式表达出来，向人们提供欲望满足的快感和审美的享受。在艺术作品中，白日梦的特点已不那么明显，因而能使艺术家和欣赏者不感到自责和羞愧地欣赏自己或别人的白日梦。
+            </p>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                if ($("#left").height() > $("#right").height()) {
+                    $("#right").css("height", $("#left").height());
+                } else {
+                    $("#left").css("height", $("#right").height());
+                }
+            })
+        </script>
+    </div>
+
+    <div class="footer">
+        <span>xxxxxx 版权所有</span><br><span>联系电话：(020) xxxxxxx&emsp;xxxxxxxxxx&emsp;E-mail：xxx@xx.com</span>
+    </div>
+</body>
+
+</html>

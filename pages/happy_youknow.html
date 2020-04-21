@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>快乐你懂的</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/music.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bscslider.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/blue.css">
+
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.bscslider.js"></script>
+    <script type="text/javascript" src="../js/jquery.jplayer.js"></script>
+    <script type="text/javascript" src="../js/lrc.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        ul,
+        ol,
+        dl {
+            list-style: none;
+        }
+
+        .music_box {
+            margin: 50px auto;
+            width: 422px;
+        }
+
+        .content {
+            width: 480px;
+            height: 100%;
+            overflow: hidden;
+            padding: 10px;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list {
+            margin: 10px auto;
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        #lrc_list li {
+            font: normal 14px/2.1 'microsoft yahei';
+            text-align: center;
+        }
+
+        #lrc_list li.hover {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        //<![CDATA[
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "../sounds/happy_youknow.mp3" //mp3的播放地址
+                    });
+                },
+                timeupdate: function (event) {
+                    if (event.jPlayer.status.currentTime == 0) {
+                        time = "";
+                    } else {
+                        time = event.jPlayer.status.currentTime;
+                    }
+                },
+                play: function (event) {
+                    //点击开始方法调用lrc。start歌词方法 返回时间time
+                    $.lrc.start($('#lrc_content').val(), function () {
+                        return time;
+                    });
+                },
+                ended: function (event) {
+                    $("#lrc_list").removeAttr("style").html("<li>歌曲播放完毕！</li>");
+                },
+                swfPath: "../js", //存放jplayer.swf的决定路径
+                solution: "html, flash", //支持的页面
+                supplied: "mp3", //支持的音频的格式
+                wmode: "window"
+            });
+        });
+        //]]>
+    </script>
+</head>
+
+<body>
+    <div class="header clearfix">
+        <div class="logo"><img src="../imgs/logo.jpg" alt="happy family"></div>
+        <div class="nav">
+            <ul id="fm">
+                <li><a href="../index.html">主页</a></li>
+                <li><a href="#">家族成员</a>
+                    <ul>
+                        <li><a href="hejiu.html">何炅</a></li>
+                        <li><a href="xiena.html">谢娜</a></li>
+                        <li><a href="weijia.html">维嘉</a></li>
+                        <li><a href="wuxin.html">吴昕</a></li>
+                        <li><a href="duhaitao.html">杜海涛</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">代表作品</a>
+                    <ul>
+                        <li><a href="happy_legend.html">快乐大本营</a></li>
+                        <li><a href="xiyouji.html">嘻游记</a></li>
+                        <li><a href="xqdz.html">仙球大战</a></li>
+                        <li><a href="kldj.html">快乐到家</a></li>
+                        <li><a href="run_way.html">一路狂奔</a></li>
+                        <li><a href="happy_youknow.html">快乐你懂的</a></li>
+                        <li><a href="distance.html">思念的距离</a></li>
+                        <li><a href="day_dream.html">白日梦</a></li>
+                        <li><a href="smile.html">绽放的微笑</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form action="https://www.baidu.com/s" class="pull-right" target="_blank">
+                <input type="text" name="wd" class="ser" placeholder="请在此键入搜索">
+                <input type="submit" class="ser-submit" value="搜索">
+            </form>
+        </div>
+    </div>
+    <div class="ad" id="main">
+        <div class="slider slider1">
+            <img src="../assets/imgs/img1.jpg" />
+            <img src="../assets/imgs/img2.jpg" />
+            <img src="../assets/imgs/img3.jpg" />
+        </div>
+    </div>
+    <script>
+        $('.slider1').bscSlider({
+            duration: 2500,
+            effect: 1,
+            effect_speed: 750,
+            easing: 'easeOutQuad'
+        });
+        $('.slider').bscSlider({
+            duration: 1000,
+            effect: 1,
+            effect_speed: 750,
+        });
+    </script>
+
+    <div class="content-music">
+        <div class="c-left pull-left" id="left">
+            <textarea id="lrc_content" name="textfield" cols="70" rows="10" style="display:none;">
+                        [00:00.00]快乐你懂的 (快乐大本营节目插曲) - 快乐家族
+                        [00:07.77]词：胡小健
+                        [00:15.55]曲：严艺丹
+                        [00:23.32]她有神奇的魔法
+                        [00:25.76]是开心大喇叭
+                        [00:27.82]让我的世界千变万化
+                        [00:30.93]它是旋转的木马
+                        [00:33.39]有彩色的烟花
+                        [00:35.32]把所有烦恼一点一点融化
+                        [00:38.89]跟着我一起出发
+                        [00:40.67]你就是super star
+                        [00:42.55]明天的美好生活要一起到达
+                        [00:46.55]快点把皮鞋擦擦
+                        [00:48.33]闪亮的不像话
+                        [00:50.08]好心情开满鲜花
+                        [00:53.01]快乐不假 你懂的呀
+                        [00:56.77]还有什么会放不下
+                        [01:00.55]世界很大 还去哪里呀
+                        [01:04.55]快乐就在我们脚下
+                        [01:08.12]快乐不假 你懂的呀
+                        [01:12.16]还有什么会放不下
+                        [01:15.91]世界很大 还去哪里呀
+                        [01:19.75]快乐就在我们脚下出发
+                        [01:42.34]她有神奇的魔法
+                        [01:44.42]是开心大喇叭
+                        [01:46.38]让我的世界千变万化
+                        [01:49.66]她是旋转的木马
+                        [01:52.08]有彩色的烟花
+                        [01:53.96]把所有烦恼一点一点融化
+                        [01:57.60]跟着我一起出发
+                        [01:59.34]你就是super star
+                        [02:01.23]明天的美好生活要一起到达
+                        [02:05.18]快点把皮鞋擦擦
+                        [02:06.94]闪亮的不像话
+                        [02:08.85]好心情开满鲜花
+                        [02:11.66]快乐不假 你懂的呀
+                        [02:15.44]还有什么会放不下
+                        [02:19.22]世界很大 还去哪里呀
+                        [02:23.12]快乐就在我们脚下
+                        [02:27.05]快乐不假 你懂的呀
+                        [02:30.86]还有什么会放不下
+                        [02:34.42]世界很大 还去哪里呀
+                        [02:38.45]快乐就在我们脚下
+                        [02:42.31]快乐不假 你懂的呀
+                        [02:46.28]还有什么会放不下
+                        [02:50.05]世界很大 还去哪里呀
+                        [02:53.77]快乐就在我们脚下 出发
+                    </textarea>
+            <div class="music_box" style="height: 80%">
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                                <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max
+                                        volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <ul class="jp-toggles">
+                                    <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a>
+                                    </li>
+                                    <li><a href="javascript:;" class="jp-repeat-off" tabindex="1"
+                                            title="repeat off">repeat off</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="jp-no-solution"> <span>Update Required</span> To play the media you will need to
+                            either
+                            update your browser to a recent version or update your <a
+                                href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>. </div>
+                    </div>
+                </div>
+                <div class="content" style="height: 100%; width: 480px">
+                    <ul id="lrc_list">
+                        <li>点击开始播放……</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="c-right pull-left" id="right">
+            <h2>《快乐你懂的》</h2>
+            <h3>歌曲介绍</h3>
+            <img src="../imgs/happy_youknow.jpg" alt="快乐你懂的">
+            <p>这张专辑是音乐版的《老友记》，可以看做是快乐家族友情的见证，可以听到他们每一个人的心情。</p>
+            <p>谢娜的《傻傻爱》唱的甜蜜而温暖；而还在做《白日梦》的吴昕耐心等待自己的白马王子；杜海涛自己写的歌词，《男人婆》的嘻哈搞怪是时尚情侣的一个缩影，最终炼成“快乐”两个字。</p>
+            <p>虽然想在这张专辑里听出技巧，听出难度，听出别具一格的新颖混搭，恐怕很难，但却能通过专辑听出将活泼、深情、灵动、嘻哈等多种风格融合在一起的快乐。</p>
+            <h3>创作背景</h3>
+            <p>快乐好像沙漠中的绿洲，人们在如沙漠一般的城市里，不断寻觅的。这张用两年的时间筹备的唱片，就像从沙漠到绿洲的过程。在过程中，每个人找到属于各自的快乐，因为每个人找到的快乐不一样，所以将专辑命名为《快乐你懂的》。
+            </p>
+            <p>这张专辑由快乐家族何炅、谢娜、李维嘉、吴昕、杜海涛联手推出。收录了电视节目《快乐大本营》主题曲《快乐你懂的》以及片尾曲《绽放的微笑》，并重新浓情演绎《快乐大本营》十年经典的《啦啦歌》。除此之外，五位金牌主持人的个人单曲也在其中。在制作期间，从找合作单位、赞助单位到音乐制作公司、MV拍摄公司以及造型和后期的剪辑，何炅全程进行考虑和安排。
+            </p>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                if ($("#left").height() > $("#right").height()) {
+                    $("#right").css("height", $("#left").height());
+                } else {
+                    $("#left").css("height", $("#right").height());
+                }
+            })
+        </script>
+    </div>
+
+    <div class="footer">
+        <span>xxxxxx 版权所有</span><br><span>联系电话：(020) xxxxxxx&emsp;xxxxxxxxxx&emsp;E-mail：xxx@xx.com</span>
+    </div>
+</body>
+
+</html>
